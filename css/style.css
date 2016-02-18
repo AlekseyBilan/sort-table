@@ -1,0 +1,84 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "comic sans ms", "Arial", "sans-serif";
+}
+
+div.container {
+    margin: 0 0 40px 15px;
+}
+
+div.control-block {
+    height: 25px;
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+
+.control-block input {
+    margin-left: 12px;
+}
+
+.text-big, .text-smal, .text-user-settings {
+    margin-right: 10px;
+}
+
+.search {
+    padding-left: 5px;
+    border: 1px solid;
+    height: 20px;
+    width: 200px;
+}
+
+.sortable {
+    margin: 15px 15px 0 0;
+    text-align: center;
+    width: 900px;
+    border: 1px solid #656565;
+    border-collapse: collapse;
+}
+
+.sortable thead {
+    background: #ccc none repeat scroll 0 0;
+}
+
+.sortable th {
+    cursor: pointer;
+}
+
+.sortable tr td, .sortable th {
+    border-right: 1px solid #656565;
+}
+
+.sortable tbody tr:nth-child(2n-1) {
+    background-color: #eee;
+}
+
+.sortable tbody tr:hover{
+    cursor: pointer;
+    background-color: rgba(104, 145, 145, 0.30);
+}
+
+.sortable th img {
+    float: right;
+    margin: 8px;
+}
+
+.wrapper-selected {
+    display: table-cell;
+    height: 40px;
+    vertical-align: middle;
+}
+
+button.add , button.btn{
+    background: #ddd none repeat scroll 0 0;
+    border: 1px solid #666;
+    padding: 0 10px;
+    cursor: pointer;
+}
+
+button.add {
+    margin: 15px 0 15px 15px;
+}
