@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Angular Sort and Filter</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/lib/angular.js"></script>
+    <script src="js/app.js"></script>
+</head>
+<body ng-app="mainApp" ng-controller="mainController">
+
+    <div class="container" ng-repeat="app in apps">
+        <div class="control-block">
+            <form>
+                <span class="title">Набор данных:</span>
+                <input ng-click="loadDatabase(app, 'big')" type="radio" class="big" name="select-database-size"/>
+                <span class="text-big">Большой</span>
+                <input ng-click="loadDatabase(app, 'small')" type="radio" class="small" name="select-database-size"/>
+                <span class="text-smal">Маленький</span>
+                <input ng-click="loadDatabase(app, 'own')" type="radio" class="user-settings" name="select-database-size"/>
+                <span class="text-user-settings">Свой</span>
+            </form>
+        </div>
+        <ng-include src="app.tableView"></ng-include>
+    </div>
+
+    <button type="button" class="add" ng-click="addApp()">Добавить еще один</button>
+</body>
+</html>

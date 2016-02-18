@@ -1,0 +1,52 @@
+<input ng-model="search" class="search" type="text" placeholder="Введите поисковой запрос">
+
+<table class="sortable">
+    <thead>
+    <tr>
+        <th ng-click="app.sortType = 'id'; app.sortReverse = !app.sortReverse">
+            Id
+            <span ng-show="app.sortType == 'id' && !app.sortReverse">&#9660;</span>
+            <span ng-show="app.sortType == 'id' && app.sortReverse">&#9650;</span>
+        </th>
+        <th ng-click="app.sortType = 'name'; app.sortReverse = !app.sortReverse">
+            Name
+            <span ng-show="app.sortType == 'name' && !app.sortReverse">&#9660;</span>
+            <span ng-show="app.sortType == 'name' && app.sortReverse">&#9650;</span>
+        </th>
+        <th ng-click="app.sortType = 'price'; app.sortReverse = !app.sortReverse">
+            Price
+            <span ng-show="app.sortType == 'price' && !app.sortReverse">&#9660;</span>
+            <span ng-show="app.sortType == 'price' && app.sortReverse">&#9650;</span>
+        </th>
+        <th ng-click="app.sortType = 'quantity'; app.sortReverse = !app.sortReverse">
+            Quantity
+            <span ng-show="app.sortType == 'quantity' && !app.sortReverse">&#9660;</span>
+            <span ng-show="app.sortType == 'quantity' && app.sortReverse">&#9650;</span>
+        </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-click="addDataToSpan(item, app)"
+        ng-repeat="item in app.data | orderBy:app.sortType:app.sortReverse | filter:search | startFrom: startingItem(app) | limitTo: app.itemsPerPage">
+        <td ng-click="addDataToAnotherSpan(app.currentPage, app)">{{ item.id }}</td>
+        <td>{{ item.name }}</td>
+        <td>{{ item.price }}</td>
+        <td>{{ item.quantity }}</td>
+    </tr>
+    </tbody>
+</table>
+
+<div class="wrapper-selected">
+    <span class="title" >Выбрано:</span>
+    <span class="selected">
+        {{app.selected}}
+    </span>
+</div>
+
+<div id="pagination" class="row">
+    <button class="pull-left btn btn-primary btn-sm" ng-disabled="firstPage(app)" ng-click="pageBack(app)">Назад
+    </button>
+    <span>{{app.currentPage+1}} из {{numberOfPages(app)}}</span>
+    <button class="btn" ng-disabled="lastPage(app)" ng-click="pageForward(app)">Вперед
+    </button>
+</div>
