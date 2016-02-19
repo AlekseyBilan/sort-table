@@ -3,9 +3,9 @@ angular.module('mainApp', [])
         $scope.apps = [];
         $scope.appCounter = 0;
         $scope.defaultApp = {
-            sortType: '0', // значение сортировки по умолчанию ( 0 = id)
+            sortType: '0', // значение сортировки по умолчанию (поле id)
             sortReverse: false,  // обратная сортривка
-            search: '',     // значение поиска по умолчанию
+            search: '',
             currentPage: 0,
             itemsPerPage: 50 // количество записей в таблице на одной странице
         };
@@ -24,8 +24,8 @@ angular.module('mainApp', [])
                 app.data = data.slice(1);
                 app.tableView = 'templates/tableView.html';
 
-            }).error(function (data, status, headers, config) {
-                console.log('error', data, status, headers, config);
+            }).error(function (data) {
+                console.log('error', data);
             });
         };
 
