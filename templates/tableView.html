@@ -28,7 +28,7 @@
     <tbody>
     <tr ng-click="addDataToSpan(item, app)"
         ng-repeat="item in app.data | orderBy:app.sortType:app.sortReverse | filter:search | startFrom: startingItem(app) | limitTo: app.itemsPerPage">
-        <td ng-click="addDataToAnotherSpan(app.currentPage, app)">{{ item.id }}</td>
+        <td>{{ item.id }}</td>
         <td>{{ item.name }}</td>
         <td>{{ item.price }}</td>
         <td>{{ item.quantity }}</td>
