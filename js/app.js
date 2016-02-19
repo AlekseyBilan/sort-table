@@ -3,7 +3,7 @@ angular.module('mainApp', [])
         $scope.apps = [];
         $scope.appCounter = 0;
         $scope.defaultApp = {
-            sortType: 'id', // значение сортировки по умолчанию
+            sortType: '0', // значение сортировки по умолчанию ( 0 = id)
             sortReverse: false,  // обратная сортривка
             search: '',     // значение поиска по умолчанию
             currentPage: 0,
@@ -21,7 +21,7 @@ angular.module('mainApp', [])
             }
 
             $http.get(urlDatabase).success(function (data) {
-                app.data = data;
+                app.data = data.slice(1);
                 app.tableView = 'templates/tableView.html';
 
             }).error(function (data, status, headers, config) {
@@ -30,7 +30,7 @@ angular.module('mainApp', [])
         };
 
         $scope.addDataToSpan = function (item, app) {
-            app.selected = item.name + ' ( price: '+  item.price + ', quantity: '+ item.quantity +' )';
+            app.selected = item[1] + ' ( price: '+  item[2] + ', quantity: '+ item[3] +' )';
         };
 
         $scope.firstPage = function (app) {

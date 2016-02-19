@@ -3,35 +3,36 @@
 <table class="sortable">
     <thead>
     <tr>
-        <th ng-click="app.sortType = 'id'; app.sortReverse = !app.sortReverse">
+        <th ng-click="app.sortType = '0'; app.sortReverse = !app.sortReverse">
             Id
-            <span ng-show="app.sortType == 'id' && !app.sortReverse">&#9660;</span>
-            <span ng-show="app.sortType == 'id' && app.sortReverse">&#9650;</span>
+            <span ng-show="app.sortType == '0' && !app.sortReverse">&#9660;</span>
+            <span ng-show="app.sortType == '0' && app.sortReverse">&#9650;</span>
         </th>
-        <th ng-click="app.sortType = 'name'; app.sortReverse = !app.sortReverse">
+        <th ng-click="app.sortType = '1'; app.sortReverse = !app.sortReverse">
             Name
-            <span ng-show="app.sortType == 'name' && !app.sortReverse">&#9660;</span>
-            <span ng-show="app.sortType == 'name' && app.sortReverse">&#9650;</span>
+            <span ng-show="app.sortType == '1' && !app.sortReverse">&#9660;</span>
+            <span ng-show="app.sortType == '1' && app.sortReverse">&#9650;</span>
         </th>
-        <th ng-click="app.sortType = 'price'; app.sortReverse = !app.sortReverse">
+        <th ng-click="app.sortType = '2'; app.sortReverse = !app.sortReverse">
             Price
-            <span ng-show="app.sortType == 'price' && !app.sortReverse">&#9660;</span>
-            <span ng-show="app.sortType == 'price' && app.sortReverse">&#9650;</span>
+            <span ng-show="app.sortType == '2' && !app.sortReverse">&#9660;</span>
+            <span ng-show="app.sortType == '2' && app.sortReverse">&#9650;</span>
         </th>
-        <th ng-click="app.sortType = 'quantity'; app.sortReverse = !app.sortReverse">
+        <th ng-click="app.sortType = '3'; app.sortReverse = !app.sortReverse">
             Quantity
-            <span ng-show="app.sortType == 'quantity' && !app.sortReverse">&#9660;</span>
-            <span ng-show="app.sortType == 'quantity' && app.sortReverse">&#9650;</span>
+            <span ng-show="app.sortType == '3' && !app.sortReverse">&#9660;</span>
+            <span ng-show="app.sortType == '3' && app.sortReverse">&#9650;</span>
         </th>
     </tr>
     </thead>
     <tbody>
+    <!-- item = ["id","name","price","quantity"] === [1,"Sony",496,0] -->
     <tr ng-click="addDataToSpan(item, app)"
         ng-repeat="item in app.data | orderBy:app.sortType:app.sortReverse | filter:search | startFrom: startingItem(app) | limitTo: app.itemsPerPage">
-        <td ng-click="addDataToAnotherSpan(app.currentPage, app)">{{ item.id }}</td>
-        <td>{{ item.name }}</td>
-        <td>{{ item.price }}</td>
-        <td>{{ item.quantity }}</td>
+        <td>{{ item[0] }}</td>
+        <td>{{ item[1] }}</td>
+        <td>{{ item[2] }}</td>
+        <td>{{ item[3] }}</td>
     </tr>
     </tbody>
 </table>
